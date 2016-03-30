@@ -27,7 +27,7 @@ time, mark, audio, video {
 
 body {
   padding:10px 50px 0 0;
-  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 14px;
 	color: #232323;
 	background-color: #FBFAF7;
@@ -76,9 +76,8 @@ h4, h5, h6 {
 }
 
 a {
+  text-decoration: none;
   color:#C30000;
-  font-weight:200;
-  text-decoration:none;
 }
 
 a:hover {
@@ -313,6 +312,10 @@ header li.bt:hover {
   background: -o-linear-gradient(top, #C3001D 0%,#950119 100%);
   background: -ms-linear-gradient(top, #C3001D 0%,#950119 100%);
   background: linear-gradient(top, #C3001D 0%,#950119 100%);
+}
+
+header li.bt a{
+  text-decoration:none;
 }
 
 a.buttons {
