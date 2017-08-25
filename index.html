@@ -8,6 +8,22 @@
 <link rel="stylesheet" href="stylesheets/styles.css">
 <link rel="stylesheet" href="stylesheets/github-light.css">
 <script src="javascripts/scale.fix.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style type="text/css">
+	.bibtexEntry{
+		background: white;
+	}
+	pre{
+		display: block;
+		font-family: monospace;
+		white-space: pre;
+		white-space: pre-wrap;       /* css-3 */
+		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+		white-space: -pre-wrap;      /* Opera 4-6 */
+		white-space: -o-pre-wrap;    /* Opera 7 */
+		word-wrap: break-word;       /
+	}
+</style>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no">
 <!--[if lt IE 9]>
@@ -30,7 +46,7 @@
 			<a href="index.html">Home</a><br/>
 			<a href="t42.html#overview">T42</a><br/>
 			<a href="index.html#bibrcat">BIBR-CAT</a><br/>
-			<a href="index.html#experiments">Results of experiments</a>
+			<a href="index.html#resources">Additional resources</a>
 			<h3 class="text-white">Github</h3>
 			<a href="https://github.com/bib-r/bib-r/tree/master/t42/" target="_blank">T42 On Github<img src="images/newwindow-icon.png" with="15" height="15" class="icon-t42"/></a><br/>
 			<a href="https://github.com/bib-r/bib-r/tree/master/bibrcat/" target="_blank">BIBR-CAT On Github<img src="images/newwindow-icon.png" with="15" height="15" class="icon-t42"/></a>
@@ -92,13 +108,71 @@
 				The concepts used in the FRBR gold files use standards vocabularies <a href="http://www.rdaregistry.info/" target="_blank">RDA</a> & <a href="http://iflastandards.info/ns/fr/frbr/frbrer/" target="_blank">FRBRer</a>. We also provide a
 				<a href="https://github.com/bib-r/bib-r/blob/master/mappings.xml" target="_blank">mapping file</a> in RDF/XML where each concept used in the datasets can be mapped to another vocabulary. This file was also generated using the Jena API and can be parsed.
 			</p>
-
-			<h2 id="experiments">
-				Experiments
+			
+			<h2 id="resources">
+				Additional resources
 			</h2>
-			<p>Download the <a href="http://bib-r.github.io/experiments.pdf" target="_blank">results</a> of the different experiments done with BIB-R and three recent FRBRisation tools.
-				
+			<p>
+				The list of additional resources are listed below:
+				<ul>
+					<li>
+						The mappings file: <a href="http://bib-r.github.io/mappings.xml" target="_blank">bib-r.github.io/mappings.xml</a>
+					</li>
+					<li>
+						The results of the different experiments done with BIB-R and three recent FRBRization tools:
+						<a href="http://bib-r.github.io/experiments.pdf" target="_blank">bib-r.github.io/experiments.pdf</a>
+					</li>
+					<li>
+						The list of specification metrics: 
+						<a href="http://bib-r.github.io/specifications-metrics.txt" target="_blank">bib-r.github.io/specifications-metrics.txt</a>
+					</li>
+					<li>
+						Publications
+						<ul>
+							<li>
+							   J. Decourselle et.al.: <strong>BIB-R: A Benchmark for the Interpretation of Bibliographic Records</strong>. TPDL 2016, Hannover, Germany [<a id="bibtexTPDL2016" href="#resources">Bibtex</a>].
+							   <div id="bibtexTPDL2016Div" class="bibtexEntry">
+							   		<pre>
+@inproceedings{DecourselleTPDL16,
+  author 	= {Joffrey Decourselle and
+  			Fabien Duchateau and 
+  			Trond Aalberg and 
+  			Naimdjon Takhirov and
+  			Nicolas Lumineau},
+  title 	= {{BIB-R:} {A} Benchmark for the Interpretation of Bibliographic Records},
+  booktitle = {Research and Advanced Technology for Digital Libraries - 20th International
+               Conference on Theory and Practice of Digital Libraries, {TPDL} 2016,
+				Hannover, Germany, September 5-9, 2016, Proceedings},
+  pages 	= {163--174},
+  year 		= {2016}
+}
+									</pre>
+							   </div>
+							</li>
+							<li>
+							   J. Decourselle et. al.: <strong>Open Datasets for Evaluating the Interpretation of Bibliographic Records</strong>. JCDL 2016, Newark, NJ, USA [<a id="bibtexJCDL2016" href="#resources">Bibtex</a>].
+									<div id="bibtexJCDL2016Div" class="bibtexEntry">
+<pre>
+@inproceedings{DecourselleJCDL16,
+  author    = {Joffrey Decourselle and
+               Fabien Duchateau and
+               Trond Aalberg and
+               Naimdjon Takhirov and
+               Nicolas Lumineau},
+  title     = {Open Datasets for Evaluating the Interpretation of Bibliographic Records},
+  booktitle = {Proceedings of the 16th {ACM/IEEE-CS} on Joint Conference on Digital
+               Libraries, {JCDL} 2016, Newark, NJ, USA, June 19 - 23, 2016},
+  pages     = {253--254},
+  year      = {2016}
+}
+</pre>
+									</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</p>
+
 
 			<h2>
 				Licence
@@ -115,5 +189,23 @@
 		</section>
 	</div>
 	<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+<script>
+ $(document).ready(function() {
+   $('#bibtexTPDL2016Div').hide();
+   $('#bibtexJCDL2016Div').hide();
+
+   $('#bibtexTPDL2016').click(function () {
+   	$('#bibtexTPDL2016Div').fadeToggle();
+    return false;
+   });
+   $('#bibtexJCDL2016').click(function () {
+   	$('#bibtexJCDL2016Div').fadeToggle();
+    return false;
+   });
+ });
+
+
+</script>
+
 </body>
 </html>
