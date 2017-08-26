@@ -1,1 +1,349 @@
-## List of Specificaion metrics
+# BIB-R - specifications of evaluation metrics
+# https://bib-r.github.io/
+# Version: 2017/07
+# Trond Aalberg, Fabien Duchateau, Naimdjon Takhirov, Joffrey Decourselle and Nicolas Lumineau
+# This file contains the specifications for all metrics (pre-FRBRization, FRBRization and post-FRBRization) provided with the BIB-R benchmark
+
+
+############
+# metric AUG
+############
+
+Name: Augmentation
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records contain an augmentation)
+Algorithm: loop over each record from collection C and determine whether it contains an augmentation by checking specific fields and values (e.g., relator codes)
+
+############
+# metric DER
+############
+
+Name: Derivation
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records contain a  derivation)
+Algorithm: loop over each record from collection C and determine whether it contains a derivation by checking specific fields and values (e.g., translator codes, added entries)
+
+############
+# metric AGG
+############
+
+Name: Aggregation
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records contain an  aggregation)
+Algorithm: loop over each record from collection C and determine whether it contains an aggregation by checking specific fields and values (e.g., use of subtitles, numbering of parts, series entries)
+
+############
+# metric COW
+############
+
+Name: Complementary works
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records contain a  complementary work)
+Algorithm: loop over each record from collection C and determine whether it contains a complementary work by checking specific fields and values (e.g., specific fields, terms of phrases in note fields)
+
+############
+# metric MID
+############
+
+Name: Missing record identifier
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  record identifier)
+Algorithm: loop over each record from collection C and determine whether it has a field for record identifier (e.g., 001 in MARC21)
+
+############
+# metric MPD
+############
+
+Name: Missing publication date
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  publication date)
+Algorithm: loop over each record from collection C and determine whether it has a field for publication date (e.g., 008 in MARC21)
+
+############
+# metric MTF
+############
+
+Name: Missing type and form of material
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  type and form of material)
+Algorithm: loop over each record from collection C and determine whether it has a field for type and form of material (e.g., 3xx in MARC21)
+
+############
+# metric TLE
+############
+
+Name: Title linkage error
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a title linkage error)
+Algorithm: loop over each record from collection C and determine whether it has a field for title linkage (e.g., 130, 240, 245 in MARC21)
+
+############
+# metric MUT
+############
+
+Name: Missing uniform title
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  uniform title)
+Algorithm: loop over each record from collection C and determine whether it has a field for uniform title (e.g., 130, 240 in MARC21)
+
+############
+# metric MOT
+############
+
+Name: Missing original title
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  original title)
+Algorithm: loop over each record from collection C and determine whether it has a field for original title (e.g., 765 in MARC21)
+
+############
+# metric RLE
+############
+
+Name: Responsibility linkage error
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a responsibility linkage error)
+Algorithm: loop over each record from collection C and determine whether it has a field for responsibility linkage (e.g., 700 in UNIMARC)
+
+############
+# metric MRC
+############
+
+Name: Missing relator code
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  relator code)
+Algorithm: loop over each record from collection C and determine whether it has a field for relator code (e.g., 100, 700 in MARC21)
+
+############
+# metric MAR
+############
+
+Name: Missing authoritative responsibility
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records have a missing  authoritative responsibility)
+Algorithm: loop over each record from collection C and determine whether it has a field for authoritative responsibility (e.g., 100, 700 in MARC21)
+
+############
+# metric CPN
+############
+
+Name: Cataloguing practices and norms
+Input: a MARC collection C
+Output: a value between 0 and 1 (1 means that all records contain cataloguing practices and norms)
+Algorithm: loop over each record from collection C and determine whether it has a field encoded with cataloguing practices and norms (e.g., 300 in MARC21)
+
+###########
+# metric MR
+###########
+
+Name: Missing rules
+Input: a MARC collection C, a set of rules R
+Output: a value between 0 and 1 (1 means that all records / fields cannot be interpreted by the set of rules)
+Algorithm: loop over each record from collection C and for each field F of a record, check whether there exists a rule in the set of rules R which can be applied to the field F
+
+###########
+# metric UR
+###########
+
+Name: Unused rules
+Input: a MARC collection C, a set of rules R
+Output: a value between 0 and 1 (1 means that all rules are useless)
+Algorithm: loop over each rule from the set of rules R and check whether there exists a record in the collection C on which the rule can be applied
+###########
+# metric CR
+###########
+
+Name: Conflicting rules
+Input: a set of rules R
+Output: a value between 0 and 1 (1 means that all rules have a conflict)
+Algorithm: loop over each rule from the set of rules R and check whether there exists another rule in R which has the same conditions
+
+############
+# metric TAC
+############
+
+Name: Tool application cost
+Input: a tool that requires configuration prior to FRBRization
+Output: a value between 0 and +infinity expressed in man hours (0 means that no configuration is needed)
+Algorithm: this metric is not implemented (strong dependency with the tool) but solutions can be found in software engineering (lines of code, analysis of user actions on a GUI)
+
+############
+# metric ETC
+############
+
+Name: Execution time cost of the entity and relationships extraction
+Input: a tool that performs FRBRization (step extraction)
+Output: a value between 0 and +infinity expressed in seconds or hours (0 means that the extraction is instantaneous)
+Algorithm: this metric is not implemented (strong dependency with the tool). A typical algorithm needs to identify the thread identifier that runs the extraction process, then calculate and convert the execution time of this thread
+
+############
+# metric ETD
+############
+
+Name: Execution time for deduplication
+Input: a tool that performs FRBRization (step deduplication)
+Output: a value between 0 and +infinity expressed in seconds or hours (0 means that the deduplication is instantaneous)
+Algorithm: this metric is not implemented (strong dependency with the tool). A typical algorithm needs to identify the thread identifier that runs the deduplication process, then calculate and convert the execution time of this thread
+
+
+###########
+# metric MD
+###########
+
+Name: Missing data
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all data in collection E are missing in collection T)
+Algorithm: loop over each data (entity, relationship, property) from collection E and check whether it exists in collection T
+
+#############
+# metric MD-E
+#############
+
+Name: Missing data - entities
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all entities in collection E are missing in collection T)
+Algorithm: loop over each entity from collection E and check whether it exists in collection T
+
+#############
+# metric MD-R
+#############
+
+Name: Missing data - relationships
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all relationships in collection E are missing in collection T)
+Algorithm: loop over each relationship from collection E and check whether it exists in collection T
+
+#############
+# metric MD-P
+#############
+
+Name: Missing data - properties
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all properties in collection E are missing in collection T)
+Algorithm: loop over each property from collection E and check whether it exists in collection T
+
+############
+# metric IAD
+############
+
+Name: Incorrectly added data
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all data in collection T are incorrectly added or misplaced compared to collection E)
+Algorithm: loop over each data (entity, relationship, property) from collection T and check whether it exists in collection E and whether it appears at the same place than in collection E
+
+##############
+# metric IAD-E
+##############
+
+Name: Incorrectly added data - entities
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all entities in collection T are incorrectly added or misplaced compared to collection E)
+Algorithm: loop over each entity from collection T and check whether it exists in collection E
+
+##############
+# metric IAD-R
+##############
+
+Name: Incorrectly added data - relationships
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all relationships in collection T are incorrectly added or misplaced compared to collection E)
+Algorithm: loop over each relationship from collection T and check whether it exists in collection E and whether it appears at the same place than in collection E (i.e, it links the same entities)
+
+##############
+# metric IAD-P
+##############
+
+Name: Incorrectly added data - properties
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all properties in collection T are incorrectly added or misplaced compared to collection E)
+Algorithm: loop over each property from collection T and check whether it exists in collection E and whether it appears at the same place than in collection E (i.e, it belongs to the same entity)
+
+############
+# metric DLE
+############
+
+Name: Data linkage error
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all links in collection T are incorrect according to collection E)
+Algorithm: loop over each link from collection T and check whether its corresponding link in collection E (same entity, same type of link) redirects to the same entity (for the same knowledge base). This process is difficult to evaluate due to the large number of knowledge bases, and a specific research community (entity linking) already provides solutions and datasets for this challenge
+
+############
+# metric SMD
+############
+
+Name: Semantic mismatch data
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all data in collection T have a different semantics than the expected one in collection E)
+Algorithm: loop over each data (entity, relationship, property) from collection T and check whether its corresponding data in collection E has the same semantics
+
+##############
+# metric SMD-E
+##############
+
+Name: Semantic mismatch data - entities
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all entities in collection T have a different semantics than the expected one in collection E)
+Algorithm: loop over each entity from collection T and check whether its corresponding entity in collection E has the same semantics
+
+##############
+# metric SMD-R
+##############
+
+Name: Semantic mismatch data - relationships
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all relationships in collection T have a different semantics than the expected one in collection E)
+Algorithm: loop over each relationship from collection T and check whether its corresponding relationship in collection E has the same semantics
+
+##############
+# metric SMD-P
+##############
+
+Name: Semantic mismatch data - properties
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (1 means that all properties in collection T have a different semantics than the expected one in collection E)
+Algorithm: loop over each property from collection T and check whether its corresponding property in collection E has the same semantics
+
+#############
+# metric FPND
+#############
+
+Name: Full pattern not detected
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (0 means that all patterns in collection E have been fully detected and interpreted in collection T)
+Algorithm: loop over each pattern from collection E and check whether all its components (main entity, main relationship, and secondary elements) have been correctly interpreted in collection T
+
+#############
+# metric MEND
+#############
+
+Name: Main entity not detected
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (0 means that the main entity of all patterns in collection E have been fully detected and interpreted in collection T)
+Algorithm: loop over each pattern from collection E and check whether its main entity has been correctly interpreted in collection T
+
+#############
+# metric MRND
+#############
+
+Name: Main relationship not detected
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (0 means that the main relationship of all patterns in collection E have been fully detected and interpreted in collection T)
+Algorithm: loop over each pattern from collection E and check whether its main relationship has been correctly interpreted in collection T
+
+############
+# metric ESE
+############
+
+Name: Errors in secondary elements
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E
+Output: a value between 0 and 1 (0 means that the secondary elements of all patterns in collection E have been fully detected and interpreted in collection T)
+Algorithm: loop over each pattern from collection E and check whether all its secondary elements have been correctly interpreted in collection T
+
+############
+# metric OQF
+############
+
+Name: Overall quality of FRBRization
+Input: a FRBR collection T produced by a tool, an expert FRBR collection E, and optionally the weights alpha1, alpha2, alpha3, alpha4 and alpha5
+Output: a value between 0 and 1 (0 means that the collection T contains no FRBRization error according to collection E)
+Algorithm: compute the scores for metrics MD, IAD, DLE, SMD and FPND and calculate the OQF score by applying the respective weights alpha1, alpha2, alpha3, alpha4 and alpha5 to each individual score
+
